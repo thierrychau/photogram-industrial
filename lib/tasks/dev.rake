@@ -20,14 +20,20 @@ task({ :sample_data => :environment }) do
     )
   end
 
-  # usernames = ["alice", "bob", "carol", "dave", "eve"]
-  # usernames.each do |username|
-  #   user = User.new
-  #   user.email = "#{username}@example.com"
-  #   user.password = "password"
-  #   user.private = [true, false].sample
-  #   user.save
-  # end
+  usernames = Array.new { Faker::Name.first_name }
+
+  usernames << "alice"
+  usernames << "bob"
+
+  usernames.each do |username|
+    User.create(
+      email: "#{username}@example.com",
+      password: "password",
+      username: username.downcase,
+      private: [true, false].sample,
+    )
+  end
+
 
   users = User.all 
 
