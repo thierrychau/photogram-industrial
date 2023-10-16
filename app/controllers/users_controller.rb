@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :liked, :feed]
+  before_action :set_user, only: [:show, :liked, :feed, :followers, :following]
 
   def show
   end
@@ -8,6 +8,12 @@ class UsersController < ApplicationController
   end
 
   def feed
+  end
+
+  def followers
+  end
+
+  def following
   end
 
   private
